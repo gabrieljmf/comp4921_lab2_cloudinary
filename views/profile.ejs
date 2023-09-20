@@ -24,8 +24,8 @@
           class="column is-10 is-offset-1 notification is-info is-light box container"
         >
           <div class="title">Profile</div>
-          <% if (locals.thisUser) { %>
-          <h1><%= locals.thisUser %></h1>
+          <% let i=0; %> <% if (locals.thisUser) { %>
+          <h1><%= allUsers[i].first_name %></h1>
           <div class="table-container">
             <table class="table is-bordered is-hoverable is-striped is-narrow">
               <thead>
@@ -35,7 +35,7 @@
                   <th>&nbsp;</th>
                 </tr>
               </thead>
-              <% let i=0; %> <% for(i=0; i < allUsers.length; i++) { %>
+              <% for(i=0; i < 1; i++) { %>
               <tr>
                 <td><%= allUsers[i].name %></td>
                 <% if (allUsers[i].image_id) { %>

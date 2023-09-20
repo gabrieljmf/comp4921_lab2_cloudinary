@@ -198,9 +198,9 @@ router.post("/setUserPic", upload.single("image"), function (req, res, next) {
 
         if (!success) {
           res.render("error", {
-            message: "Error uploading pet image to MongoDB",
+            message: "Error uploading user image to MongoDB",
           });
-          console.log("Error uploading pet image");
+          console.log("Error uploading user image");
         } else {
           res.redirect(`/showProfile?id=${user_id}`);
         }
@@ -234,7 +234,7 @@ router.get("/showProfile", async (req, res) => {
 
     const users = await userCollection
       .find()
-      .project({ _id: user_id })
+      .project({ first_name: 1, last_name: 1, email: 1, _id: 1 })
       .toArray();
 
     if (users === null) {
